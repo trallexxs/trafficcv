@@ -1,0 +1,18 @@
+{
+  "_comment": "Fixed-camera scene layout, normalised [0,1] image coordinates (x right, y down). Traced from a still frame of the sample videos. The vehicle signal heads face away from the camera, so the red phase is inferred from the queue behaviour at the stop line (see src/events.py: red_phase).",
+  "crossings": [
+    [[0.160, 0.550], [0.745, 0.440], [0.755, 0.500], [0.185, 0.615]],
+    [[0.070, 0.690], [0.185, 0.655], [0.475, 1.000], [0.280, 1.000]]
+  ],
+  "crossing_margin": 0.025,
+  "stop_lines": [
+    {
+      "name": "main avenue, inbound (queue on the left)",
+      "p1": [0.145, 0.462],
+      "p2": [0.500, 0.418],
+      "direction": [0.45, 1.0],
+      "queue_depth": 0.11,
+      "past_depth": 0.07
+    }
+  ]
+}

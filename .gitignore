@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+outputs/
+samples/*.mp4
+samples/*.MP4
+predictions.json
+space_build/
+*.log
+.DS_Store

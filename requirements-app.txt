@@ -1,0 +1,5 @@
+# Website / demo (app.py) and sample processing extras, on top of requirements.txt
+gradio>=6.0,<7
+plotly>=5.20
+pandas>=2.0
+pytest>=8.0
