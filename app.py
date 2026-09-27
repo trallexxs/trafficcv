@@ -21,7 +21,7 @@ from src.viz import bar_figure, counts_figure, timeline_figure  # noqa: E402
 ROOT = Path(__file__).resolve().parent
 ASSETS = Path(os.environ.get("SITE_ASSETS", ROOT / "site_assets"))   # written by scripts/process_samples.py
 EDA = ASSETS / "eda"
-REPO_URL = os.environ.get("REPO_URL", "https://github.com/amirxon3513-ship-it/Hakathon.code.1")
+REPO_URL = os.environ.get("REPO_URL", "https://github.com/trallexxs/trafficcv")
 MAX_SECONDS = 120
 MAX_MB = 200
 

@@ -3,7 +3,7 @@ import os
 import subprocess
 import sys
 
-REPO = os.environ.get("REPO_URL", "https://github.com/OWNER/REPO")
+REPO = os.environ.get("REPO_URL", "https://github.com/trallexxs/trafficcv")
 HERE = os.path.dirname(os.path.abspath(__file__))
 CODE = os.path.join(HERE, "code")
 

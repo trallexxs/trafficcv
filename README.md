@@ -6,7 +6,7 @@ A fixed CCTV camera watches a signalised intersection. For each video we return 
 as `[start_sec, end_sec, label]` (Part A) and, frame by frame and causally, the probability that an
 accident starts within 5 s (Part B).
 
-**Website and live demo:** `<HF_SPACE_URL>`
+**Code:** https://github.com/trallexxs/trafficcv · **Website and live demo:** `<HF_SPACE_URL>`
 
 ## Quick start (judges)
 
