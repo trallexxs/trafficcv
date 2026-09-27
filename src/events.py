@@ -118,7 +118,7 @@ def rule_stopped_vehicle(eps: Sequence[Episode], snap: Snapshot, scene: SceneMod
     out = []
     for e in eps:
         dur = e.t1 - e.t0
-        if dur < cfg.stopped_min_s or not scene.on_road(e.foot, core=True):
+        if dur < cfg.stopped_min_s or not scene.on_road(e.foot, "core"):
             continue
         if e.t0 < 1.0 and e.t1 > duration - 1.0:
             continue                                         # parked for the whole clip
@@ -151,7 +151,7 @@ def rule_congestion(snap: Snapshot, scene: SceneModel, cfg: RuleConfig) -> List[
     for k, items in enumerate(snap.items):
         per_group: Dict[int, List[float]] = {}
         for tr, i in items:
-            if tr.is_vehicle and scene.on_road(tr.foot[i], core=True):
+            if tr.is_vehicle and scene.on_road(tr.foot[i], "core"):
                 per_group.setdefault(scene.flow_direction(tr.foot[i]) // 2, []).append(tr.speed[i])
         for g, speeds in per_group.items():
             speeds = np.asarray(speeds)
@@ -211,7 +211,7 @@ def rule_jaywalking(tracks: Dict[int, Track], scene: SceneModel, cfg: RuleConfig
     for tr in tracks.values():
         if not tr.is_person or tr.duration < cfg.jaywalk_min_s:
             continue
-        on = np.array([scene.on_road(p, core=True) and not scene.in_crossing(p, margin=True)
+        on = np.array([scene.on_road(p, "deep") and not scene.in_crossing(p, margin=True)
                        for p in tr.foot])
         if not on.any():
             continue

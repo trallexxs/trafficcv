@@ -4,7 +4,7 @@
     [[0.160, 0.550], [0.745, 0.440], [0.755, 0.500], [0.185, 0.615]],
     [[0.070, 0.690], [0.185, 0.655], [0.475, 1.000], [0.280, 1.000]]
   ],
-  "crossing_margin": 0.025,
+  "crossing_margin": 0.04,
   "stop_lines": [
     {
       "name": "main avenue, inbound (queue on the left)",

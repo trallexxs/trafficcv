@@ -80,9 +80,10 @@ class SceneModel:
         veh = stats.veh.astype(np.float32)
         thr = max(3.0, 0.03 * float(np.percentile(veh[veh > 0], 95))) if (veh > 0).any() else np.inf
         kernel = np.ones((3, 3), np.uint8)
-        core = cv2.morphologyEx((veh >= 2 * thr).astype(np.uint8), cv2.MORPH_CLOSE, kernel)
+        core = (veh >= 2 * thr).astype(np.uint8)
         road = cv2.morphologyEx((veh >= thr).astype(np.uint8), cv2.MORPH_CLOSE, kernel)
-        self.road_core = core.astype(bool)          # cells vehicles really drive through
+        self.road_core = core.astype(bool)                            # cells vehicles really drive through
+        self.road_deep = cv2.erode(core, kernel).astype(bool)         # core cells away from kerbs/islands
         self.road = road.astype(bool) | self.road_core
         dirs = np.stack([_box_blur(stats.dirs[:, :, k]) for k in range(NBINS)], 2)
         total = dirs.sum(2) + 1e-6
@@ -113,11 +114,12 @@ class SceneModel:
     def has_crossings(self) -> bool:
         return bool(self.polys["crossings"])
 
-    def on_road(self, p, core: bool = False) -> bool:
+    def on_road(self, p, level: str = "road") -> bool:
+        """level: 'road' (any traffic), 'core' (regular traffic) or 'deep' (core, away from kerbs)."""
         if self.polys["road"]:
             return self._in_polys("road", p)
         gy, gx = self.cell(p)
-        return bool(self.road_core[gy, gx] if core else self.road[gy, gx])
+        return bool({"road": self.road, "core": self.road_core, "deep": self.road_deep}[level][gy, gx])
 
     def in_crossing(self, p, margin: bool = False) -> bool:
         """Inside a pedestrian crossing; `margin` also accepts the kerb-side band around it."""

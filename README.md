@@ -88,7 +88,7 @@ perspective of the camera.
 |---|---|
 | stopped_vehicle | stationary ≥ 10 s on the road core, overtaken by ≥ 2 vehicles of the same flow, not queued behind/beside other stopped vehicles; stops split by occlusion are re-joined |
 | wrong_way | moving ≥ 2 s and ≥ 2.5 body-lengths against the dominant heading of the cells it drives through |
-| jaywalking | pedestrian (riders excluded) ≥ 1.5 s on the road core, outside the crossings and a kerb margin |
+| jaywalking | pedestrian (riders excluded) ≥ 1.5 s well inside the road (away from kerbs and islands), outside the crossings and their margin |
 | accident | contact between two vehicles, one brakes from ≥ 0.8 to < 35 % of its speed within ~1 s and stays stopped ≥ 3 s; ends when all involved stop |
 | congestion | ≥ 5 vehicles of one flow direction, ≥ 75 % crawling, for ≥ 90 s (longer than a red phase) |
 | red_light | a vehicle crosses the stop line while the queue keeps waiting (red phase before and after) |

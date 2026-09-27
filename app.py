@@ -161,7 +161,7 @@ organisers' sample videos by `scripts/process_samples.py`.
 |---|---|
 | stopped_vehicle | stationary ≥ 10 s on the road core, overtaken by ≥ 2 vehicles of the same flow, not in a queue |
 | wrong_way | ≥ 2 s and ≥ 2.5 body-lengths moving opposite to a cell's dominant direction |
-| jaywalking | pedestrian (not a rider) ≥ 1.5 s on the road core outside the crossings (+ kerb margin) |
+| jaywalking | pedestrian (not a rider) ≥ 1.5 s well inside the road, away from kerbs/islands and outside the crossings |
 | accident | two vehicles in contact, one brakes from ≥ 0.8 to < 35 % of its speed within ~1 s and stays stopped ≥ 3 s |
 | congestion | ≥ 5 vehicles of one direction, ≥ 75 % crawling, for ≥ 90 s (longer than a red phase) |
 | red_light | vehicle crosses the stop line while the queue beside it keeps waiting (red phase) |
