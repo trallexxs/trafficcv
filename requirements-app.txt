@@ -1,5 +1,5 @@
-# Website / demo (app.py) and sample processing extras, on top of requirements.txt
-gradio>=6.0,<7
+# Website (website/streamlit_app.py), sample processing and tests, on top of requirements.txt
+streamlit>=1.50
 plotly>=5.20
 pandas>=2.0
 pytest>=8.0

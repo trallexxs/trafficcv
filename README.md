@@ -29,7 +29,7 @@ solution.py              interface: detect_events() and RiskEstimator (thin wrap
 run_submission.py        organisers' harness (unchanged)
 evaluate.py              organisers' metric (unchanged)
 requirements.txt         submission runtime
-requirements-app.txt     website / sample-processing extras
+requirements-app.txt     website / sample-processing / test extras
 configs/
   scene.json             hand-traced scene geometry: crossings, stop line, queue zone
   bytetrack.yaml         tracker settings
@@ -46,8 +46,8 @@ src/
   offline.py, eda.py, viz.py   sample processing, rendering, EDA and charts for the website
 scripts/
   process_samples.py     scene prior, predictions_samples.json, annotated videos, EDA
-space/                   Hugging Face Space entry point (clones this repo and runs app.py)
-app.py                   website + live demo (Gradio)
+website/                 team website + live demo (Streamlit): streamlit_app.py, content.py, requirements.txt
+packages.txt             system packages for the Streamlit Cloud deployment
 tests/                   rule tests on synthetic trajectories (pytest)
 predictions_samples.json our output on the sample videos
 ```
@@ -134,7 +134,7 @@ floating-point noise from fp16 inference.
 pip install -r requirements.txt -r requirements-app.txt
 python scripts/process_samples.py --videos samples --out outputs   # prior, predictions_samples.json, renders, EDA
 python -m pytest -q tests                                          # rule tests
-python app.py                                                      # website on http://127.0.0.1:7860
+streamlit run website/streamlit_app.py                             # website on http://localhost:8501
 ```
 
 ## Datasets, models and licences
