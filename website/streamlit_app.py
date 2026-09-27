@@ -170,9 +170,11 @@ def eda_tab() -> None:
 
 # -------------------------------------------------------------------- page
 st.title("🚦 Traffic Event Detection & Accident Anticipation")
+links = [f"[Code repository]({REPO_URL})", f"[weights]({REPO_URL}/tree/main/weights)"]
+if (ROOT / "predictions_samples.json").exists():
+    links.append(f"[predictions_samples.json]({REPO_URL}/blob/main/predictions_samples.json)")
 st.markdown("Fixed-camera CCTV → every traffic event as a time segment, plus a live accident-risk score. "
-            f"[Code repository]({REPO_URL}) · [predictions_samples.json]({REPO_URL}/blob/main/predictions_samples.json)"
-            f" · [weights]({REPO_URL}/tree/main/weights)")
+            + " · ".join(links))
 tabs = st.tabs(["Live demo", "Sample results", "EDA", "Approach", "Report", "Team"])
 with tabs[0]:
     demo_tab()
