@@ -1,7 +1,7 @@
 # Streamlit Community Cloud (CPU) - used instead of the root requirements.txt
 --extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.6.0
-torchvision==0.21.0
+torch>=2.9
+torchvision>=0.24
 ultralytics==8.4.163
 lap>=0.5.12
 numpy>=1.24

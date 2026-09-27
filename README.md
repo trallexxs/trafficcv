@@ -20,7 +20,10 @@ python evaluate.py --pred predictions.json --validate-only
   or internet access is needed at run time.
 * GPU is used when available (fp16). Without a GPU the code switches to YOLO11-n and a lower frame
   rate so it still fits the time budget.
-* Tested on Python 3.11 with `torch 2.6.0` and `ultralytics 8.4.163` from a clean virtual environment.
+* Tested from a clean virtual environment (Python 3.11, `torch 2.6`, `ultralytics 8.4.163`, OpenCV 5.0); the
+  website runs the same code on Python 3.14 with `torch 2.14` (CPU).
+* If `import cv2` fails with `libGL.so.1: cannot open shared object file` (the Ultralytics dependency
+  `opencv-python` needs it on minimal Linux images), run `apt-get install -y libgl1 libglib2.0-0`.
 
 ## Repository layout
 

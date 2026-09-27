@@ -1,6 +1,6 @@
 # Submission runtime (Python 3.10+, NVIDIA GPU). Website-only extras: requirements-app.txt
-torch==2.6.0
-torchvision==0.21.0
+torch>=2.4
+torchvision>=0.19
 ultralytics==8.4.163
 lap>=0.5.12
 numpy>=1.24
